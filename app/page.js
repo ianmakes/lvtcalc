@@ -1,5 +1,5 @@
-import ScientificCalculator from "./components/ScientificCalculator";
+import ClientPage from "./components/ClientPage";
 
 export default function Home() {
-  return <ScientificCalculator />;
+  return <ClientPage />;
 }
