@@ -211,6 +211,8 @@ export default function ScientificCalculator() {
 
   useEffect(() => { setHistory(loadHistory()) }, [])
 
+  useEffect(() => { if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js') }, [])
+
   useEffect(() => { saveHistory(history) }, [history])
   const [showHistory, setShowHistory] = useState(false)
 
