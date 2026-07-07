@@ -24,18 +24,26 @@ body {
 
 @media (max-width: 480px) {
   html {
-    overflow: auto;
+    overflow: hidden;
+    background: #fff;
   }
   body {
     height: auto;
-    align-items: flex-start;
-    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    align-items: center;
+    background: #fff;
+    padding: 0;
   }
   .calc-wrapper {
     min-height: 100vh;
     min-height: -webkit-fill-available;
     width: 100%;
     padding: 0;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .calc-body {
+    flex: 1;
+    width: 100%;
   }
 }
 
@@ -645,82 +653,78 @@ body::after {
 
 @media (max-width: 480px) {
   .calculator {
-    padding: 16px;
+    padding: 12px;
     border: none;
   }
 
   .converter {
-    padding: 24px 16px;
+    padding: 20px 12px;
     border: none;
   }
 
-  .calc-wrapper {
-    padding: 0;
-  }
-
   .calc-display {
-    padding: 14px 16px;
-    min-height: 80px;
-    margin-bottom: 14px;
+    padding: 10px 12px;
+    min-height: 70px;
+    margin-bottom: 10px;
   }
 
   .calc-result {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .calc-expression {
-    font-size: 12px;
+    font-size: 11px;
+  }
+
+  .calc-sci-row {
+    gap: 3px;
+    margin-bottom: 3px;
   }
 
   .calc-btn {
-    padding: 10px 0;
-    font-size: 13px;
+    padding: 8px 0;
+    font-size: 12px;
   }
 
   .calc-btn.num,
   .calc-btn.op {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .calc-btn.eq {
-    font-size: 18px;
-  }
-
-  .calc-sci-row {
-    gap: 4px;
-    margin-bottom: 4px;
+    font-size: 16px;
   }
 
   .calc-main-grid {
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   .calc-numbers {
-    gap: 4px;
+    gap: 3px;
   }
 
   .calc-top-bar {
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 6px;
+    margin-bottom: 10px;
     padding: 0;
   }
 
   .calc-logo-img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   .calc-brand span:first-child {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .calc-brand span:last-child {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .calc-history-btn {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .calc-drawer {
@@ -731,46 +735,62 @@ body::after {
   }
 
   .calc-footer {
-    font-size: 10px;
-    padding: 0 16px 16px;
-    padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    font-size: 9px;
+    padding: 8px 12px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 8px));
+    margin-top: 8px;
   }
 
-  body::before {
-    width: 400px;
-    height: 300px;
-    top: -60px;
-    left: -80px;
-  }
-
+  body::before,
   body::after {
-    width: 350px;
-    height: 250px;
-    bottom: -40px;
-    right: -60px;
+    display: none;
   }
 
   .conv-cat-select,
   .conv-input,
   .conv-select,
   .conv-result {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .conv-input-group {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .conv-swap {
-    margin: 14px auto;
+    margin: 12px auto;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .conv-submit {
+    padding: 10px;
+    font-size: 13px;
   }
 
   .calc-mode-btn {
-    padding: 4px 10px;
-    font-size: 11px;
+    padding: 4px 8px;
+    font-size: 10px;
   }
 
   .calc-mode-switch {
     padding: 2px;
+  }
+
+  .conv-select {
+    width: 70px;
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+
+  .conv-input {
+    padding: 8px 10px;
+  }
+
+  .conv-result {
+    padding: 8px 10px;
+    font-size: 16px;
+    min-height: 36px;
   }
 }
