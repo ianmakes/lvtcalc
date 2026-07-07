@@ -1,5 +1,7 @@
-import ClientPage from "./components/ClientPage";
+'use client'
+
+import ScientificCalculator from "./components/ScientificCalculator";
 
 export default function Home() {
-  return <ClientPage />;
+  return <ScientificCalculator />;
 }

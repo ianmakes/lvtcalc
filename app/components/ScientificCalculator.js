@@ -214,27 +214,6 @@ export default function ScientificCalculator() {
   useEffect(() => { saveHistory(history) }, [history])
   const [showHistory, setShowHistory] = useState(false)
 
-  useEffect(() => {
-    const handler = (e) => {
-      if (mode !== 'calculator') return
-      if (e.ctrlKey || e.metaKey || e.altKey) return
-      if (e.key === 'Enter' || e.key === '=') { e.preventDefault(); equals(); return }
-      if (e.key === 'Backspace') { e.preventDefault(); backspace(); return }
-      if (e.key === 'Escape' || e.key === 'Delete') { e.preventDefault(); clear(); return }
-      if (e.key >= '0' && e.key <= '9') { inputDigit(e.key); return }
-      if (e.key === '.') { inputDecimal(); return }
-      if (e.key === '(') { addLeftParen(); return }
-      if (e.key === ')') { addRightParen(); return }
-      if (e.key === '+') { addOperator('+'); return }
-      if (e.key === '-') { addOperator('-'); return }
-      if (e.key === '*') { addOperator('×'); return }
-      if (e.key === '/') { addOperator('÷'); return }
-      if (e.key === '^') { addOperator('^'); return }
-    }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [mode, equals, backspace, clear, inputDigit, inputDecimal, addLeftParen, addRightParen, addOperator])
-
   const isExprEmpty = expr.trim() === ''
 
   const append = useCallback((s) => {
@@ -414,6 +393,27 @@ export default function ScientificCalculator() {
   const displayExpr = useMemo(() => {
     return expr || '\u00A0'
   }, [expr])
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (mode !== 'calculator') return
+      if (e.ctrlKey || e.metaKey || e.altKey) return
+      if (e.key === 'Enter' || e.key === '=') { e.preventDefault(); equals(); return }
+      if (e.key === 'Backspace') { e.preventDefault(); backspace(); return }
+      if (e.key === 'Escape' || e.key === 'Delete') { e.preventDefault(); clear(); return }
+      if (e.key >= '0' && e.key <= '9') { inputDigit(e.key); return }
+      if (e.key === '.') { inputDecimal(); return }
+      if (e.key === '(') { addLeftParen(); return }
+      if (e.key === ')') { addRightParen(); return }
+      if (e.key === '+') { addOperator('+'); return }
+      if (e.key === '-') { addOperator('-'); return }
+      if (e.key === '*') { addOperator('×'); return }
+      if (e.key === '/') { addOperator('÷'); return }
+      if (e.key === '^') { addOperator('^'); return }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [mode, equals, backspace, clear, inputDigit, inputDecimal, addLeftParen, addRightParen, addOperator])
 
   return (
     <div className="calc-wrapper">
