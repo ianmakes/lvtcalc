@@ -474,20 +474,6 @@ body::after {
   height: 100%;
 }
 
-@media (max-width: 480px) {
-  .calc-mode-panel {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .calc-mode-panel > .calculator,
-  .calc-mode-panel > .converter {
-    flex: 1;
-    height: auto;
-  }
-}
-
 .calc-main-grid {
   margin-top: 10px;
 }
